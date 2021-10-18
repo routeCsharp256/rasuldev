@@ -1,0 +1,10 @@
+*.exe
+bin/
+obj/
+_ReSharper.*/
+*.ReSharper.user
+*.suo
+*.user
+*packages/*
+!*packages/*.config
+.vs
