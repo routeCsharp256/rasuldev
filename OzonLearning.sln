@@ -15,6 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{D5E98C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OzonEdu.MerchandiseService", "src\OzonEdu.MerchandiseService\OzonEdu.MerchandiseService.csproj", "{E265E88B-5480-41C0-9193-7CA3043EFD19}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09CFC406-9A49-4F11-A80E-83D62BDEA95D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
