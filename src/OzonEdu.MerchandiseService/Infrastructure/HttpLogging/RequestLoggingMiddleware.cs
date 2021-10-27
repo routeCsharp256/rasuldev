@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace OzonEdu.MerchandiseService.Infrastructure.Middlewares
+namespace OzonEdu.MerchandiseService.Infrastructure.HttpLogging
 {
     public class RequestLoggingMiddleware : LoggingMiddleware
     {

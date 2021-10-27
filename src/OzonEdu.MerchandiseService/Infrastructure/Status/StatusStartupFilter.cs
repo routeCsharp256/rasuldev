@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using OzonEdu.MerchandiseService.Infrastructure.Middlewares;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OzonEdu.MerchandiseService.Infrastructure
+namespace OzonEdu.MerchandiseService.Infrastructure.Status
 {
     public class StatusStartupFilter : IStartupFilter
     {

@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using OzonEdu.MerchandiseService.Infrastructure.GrpcServices;
+using OzonEdu.MerchandiseService.Infrastructure.HttpLogging;
+using OzonEdu.MerchandiseService.Infrastructure.Status;
 using System;
 using System.Collections.Generic;
 using System.IO;

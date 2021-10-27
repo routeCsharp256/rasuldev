@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace OzonEdu.MerchandiseService.Infrastructure.Middlewares
+namespace OzonEdu.MerchandiseService.Infrastructure.HttpLogging
 {
     public class ResponseLoggingMiddleware : LoggingMiddleware
     {
@@ -33,7 +33,7 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Middlewares
             {
                 var response = context.Response;
                 _logger.LogInformation(
-                    $"Http response:\r\n" + 
+                    $"Http response:\r\n" +
                     $"Status code: {response.StatusCode}\r\n" +
                     $"Headers: {JsonSerializer.Serialize(response.Headers)}");
             }

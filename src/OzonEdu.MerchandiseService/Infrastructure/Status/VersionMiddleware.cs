@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace OzonEdu.MerchandiseService.Infrastructure.Middlewares
+namespace OzonEdu.MerchandiseService.Infrastructure.Status
 {
     public class VersionMiddleware
     {
@@ -14,7 +14,7 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Middlewares
         {
             var version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "no version";
             await context.Response
-                .WriteAsJsonAsync(new { version = version, serviceName = "Merchandise Service" });
+                .WriteAsJsonAsync(new { version, serviceName = "Merchandise Service" });
         }
     }
 }
