@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using OzonEdu.MerchandiseService.Infrastructure.GrpcServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,8 +22,14 @@ namespace OzonEdu.MerchandiseService.Infrastructure
                 // Required for swagger
                 services.AddMvc();
                 ConfigureSwagger(services);
+                ConfigureGrpc(services);
             });
             return builder;
+        }
+
+        private static void ConfigureGrpc(IServiceCollection services)
+        {
+            services.AddGrpc(options => options.Interceptors.Add<LoggingInterceptorGrpc>());
         }
 
         private static void ConfigureStatusAndLogging(IServiceCollection services)
@@ -38,9 +45,9 @@ namespace OzonEdu.MerchandiseService.Infrastructure
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "OzonEdu.MerchandiseService", Version = "v1" });
                 options.CustomSchemaIds(x => x.FullName);
-                //var xmlFileName = Assembly.GetExecutingAssembly().GetName().Name + ".xml";
-                //var xmlFilePath = Path.Combine(AppContext.BaseDirectory, xmlFileName);
-                //options.IncludeXmlComments(xmlFilePath);
+                var xmlFileName = Assembly.GetExecutingAssembly().GetName().Name + ".xml";
+                var xmlFilePath = Path.Combine(AppContext.BaseDirectory, xmlFileName);
+                options.IncludeXmlComments(xmlFilePath);
             });
             
         }
