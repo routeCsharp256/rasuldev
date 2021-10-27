@@ -18,15 +18,15 @@ namespace OzonEdu.MerchandiseService.Infrastructure.GrpcServices
             _logger = logger;
         }
 
-        public override Task<TResponse> UnaryServerHandler<TRequest, TResponse>(TRequest request, ServerCallContext context, UnaryServerMethod<TRequest, TResponse> continuation)
+        public override async Task<TResponse> UnaryServerHandler<TRequest, TResponse>(TRequest request, ServerCallContext context, UnaryServerMethod<TRequest, TResponse> continuation)
         {
             var requestJson = JsonSerializer.Serialize(request);
-            _logger.LogInformation(requestJson);
+            _logger.LogInformation($"Grpc request: {requestJson}");
 
-            var response = base.UnaryServerHandler(request, context, continuation);
+            var response = await base.UnaryServerHandler(request, context, continuation);
 
             var responseJson = JsonSerializer.Serialize(response);
-            _logger.LogInformation(responseJson);
+            _logger.LogInformation($"Grpc response: {responseJson}");
 
             return response;
         }

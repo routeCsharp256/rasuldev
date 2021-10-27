@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OzonEdu.MerchandiseService.Infrastructure.Middlewares
 {
-    public class ResponseLoggingMiddleware
+    public class ResponseLoggingMiddleware : LoggingMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ILogger<ResponseLoggingMiddleware> _logger;
@@ -23,11 +23,9 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Middlewares
         public async Task InvokeAsync(HttpContext context)
         {
             await _next(context);
-            if (!IsGrpc())
+            if (!IsGrpc(context))
                 LogResponse(context);
         }
-
-        private bool IsGrpc() => false;
 
         private void LogResponse(HttpContext context)
         {

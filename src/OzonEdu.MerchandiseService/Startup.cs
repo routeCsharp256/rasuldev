@@ -28,8 +28,8 @@ namespace OzonEdu.MerchandiseService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<MerchandiseServiceGrpc>();
-//                endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Merchandise service"); });
                 endpoints.MapControllers();
+                endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Merchandise service"); });
             });
         }
     }
