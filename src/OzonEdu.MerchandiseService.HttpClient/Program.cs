@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace OzonEdu.MerchandiseService.HttpClient
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var httpClient = new System.Net.Http.HttpClient()
             {
@@ -12,10 +13,10 @@ namespace OzonEdu.MerchandiseService.HttpClient
             };
             var client = new MerchandiseHttpClient(httpClient);
 
-            var merchInfo = client.GetMerchInfo(new HttpModels.MerchInfoRequest()).Result;
+            var merchInfo = await client.GetMerchInfo(new HttpModels.MerchInfoRequest());
             Console.WriteLine($"Merch info response status: {merchInfo.Status}");
 
-            var requestMerch = client.RequestMerch(new HttpModels.RequestMerchRequest()).Result;
+            var requestMerch = await client.RequestMerch(new HttpModels.RequestMerchRequest());
             Console.WriteLine($"Request merch status: {requestMerch.Status}");
         }
     }
