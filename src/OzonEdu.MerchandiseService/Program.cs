@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using OzonEdu.MerchandiseService.Infrastructure;
 
 namespace OzonEdu.MerchandiseService
 {
@@ -15,6 +16,7 @@ namespace OzonEdu.MerchandiseService
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                .AddInfrastructure();
     }
 }

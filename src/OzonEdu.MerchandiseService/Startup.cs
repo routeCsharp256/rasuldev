@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OzonEdu.MerchandiseService.Infrastructure.GrpcServices;
 
 namespace OzonEdu.MerchandiseService
 {
@@ -26,6 +27,8 @@ namespace OzonEdu.MerchandiseService
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGrpcService<MerchandiseServiceGrpc>();
+                endpoints.MapControllers();
                 endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Merchandise service"); });
             });
         }
